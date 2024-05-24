@@ -1,0 +1,7 @@
+{
+  "name": "food-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
