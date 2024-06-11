@@ -1,0 +1,40 @@
+<ion-content>
+  <div class="header">
+    <ion-buttons>
+      <ion-button routerLink="/home/listing">
+        <ion-icon [src]="back" slot="start" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons>
+      <ion-button routerLink="/tabs/listing">
+        <ion-icon [src]="heart" slot="start" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <!-- food cart -->
+  <div class="card">
+    <div class="image">
+      <ion-img [src]="foods?.image" alt="{{foods?.image}}"></ion-img>
+    </div>
+    <div class="card-content">
+      <div class="card-title">
+        <h1 class="ion-no-margin h1">{{foods?.title}}</h1>
+        <p class="ion-no-margin p">{{foods?.price | currency:'INR'}}</p>
+      </div>
+    </div>
+    <div class="rates">
+      <div class="badge">
+        <ion-icon [src]="time"></ion-icon><span>30m</span>
+      </div>
+      <div class="badge">
+        <ion-icon [src]="star">4.5</ion-icon><span>4.5</span>
+      </div>
+    </div>
+    <div class="about">
+      <h1>About</h1>
+      <p>{{foods?.description}}</p>
+    </div>
+    <ion-button (click)="addToCart()">Add to Cart</ion-button>
+  </div>
+</ion-content>

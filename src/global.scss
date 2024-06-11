@@ -35,3 +35,13 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+ion-searchbar{
+    .searchbar-input-container{
+        input{
+            padding-top: 14px !important;
+            padding-bottom: 12px !important;
+            font-size: 18px !important;
+        }
+    }
+}

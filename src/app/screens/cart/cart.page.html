@@ -1,0 +1,48 @@
+<ion-content>
+  <ng-container *ngIf="cartItem$ | async as cartItems">
+    <h3 class="title">{{(cartItem$ | async)?.length? 'Your-Cart':'Your Cart is Empty'}}</h3>
+
+    <!-- cart-item -->
+    @if ((cartItems.length)) {
+    <ion-list lines="none">
+      @for (item of (cartItem$|async); track item.id) {
+      <ion-item-sliding>
+        <ion-item>
+          <div class="cart-item" item="item" (click)="onIncrease(item)" (decrease)="onDecrease(item)">
+            <div class="image">
+              <ion-img [src]="item?.image"></ion-img>
+            </div>
+            <div class="description">
+              <h3>{{item?.name}}</h3>
+              <p>{{item?.price | currency:'INR'}}</p>
+            </div>
+            <div class="actions">
+              <ion-buttons slot="start">
+                <ion-button (click)="increase.emit()">
+                  <ion-icon slot="icon-only" [src]="add"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+              <div class="center">{{item?.quantity}}</div>
+              <ion-buttons slot="start">
+                <ion-button (click)="decrease.emit()">
+                  <ion-icon slot="icon-only" [src]="remove"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item-options (click)="removeFromCart(item)">
+          <ion-icon slot="icon-only" [src]="trash" color="danger" size="large"></ion-icon>
+        </ion-item-options>
+      </ion-item-sliding>
+      }
+    </ion-list>
+    }
+    @else {
+    <div class="empty-cart">
+      <ion-icon [src]="cartIcon"> </ion-icon>
+      <p>Your Cart is Empty</p>
+    </div>
+    }
+  </ng-container>
+</ion-content>

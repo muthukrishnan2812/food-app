@@ -1,0 +1,40 @@
+<ion-content>
+  <div class="header">
+    <h1>Menu</h1>
+    <div class="avatar">
+      <ion-img src="assets/images/mk.jpg"></ion-img>
+    </div>
+
+  </div>
+  <app-searchbar></app-searchbar>
+  <div class="categories">
+    @for (post of categories; track post.id) {
+    <div class="wrapper" [ngClass]="post.active ? 'active' : ''">
+      <div class="image-card">
+        <ion-img src="{{post.image}}"></ion-img>
+      </div>
+      <p>{{post.label}}</p>
+
+    </div>
+    }
+  </div>
+  <!-- products -->
+  <h1 class="list-header">Popular</h1>
+  <div class="food-list">
+    @for (item of foods; track item.id) {
+    <div class="card">
+      <ion-img src="{{item.image}}"></ion-img>
+      <div class="card-content">
+        <h3 class="title">{{item.title}}</h3>
+        <h2 class="subtitle">{{item.price*25 | currency:'INR'}}</h2>
+        <ion-buttons>
+          <ion-button (click)="goToDetailPage(item.id)">
+            <!-- <ion-icon name="add-outline-circle" slot="icon-only" fill="outline"></ion-icon> -->
+            <ion-icon [src]="add"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </div>
+    }
+  </div>
+</ion-content>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 
 @Component({
